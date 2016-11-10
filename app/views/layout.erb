@@ -7,10 +7,12 @@
 
     <title>Wagon's quotes</title>
 
-    <link  rel="shortcut icon" type="image/png" href="images/favicon.png">
+    <link  rel="shortcut icon" type="image/png" href="/images/favicon.png">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="/css/style.css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- Leave those next 4 lines if you care about users using IE8 -->
@@ -24,8 +26,13 @@
 
 
     <div class="container">
+      <div class="header">
+        <img src="/images/logo_lewagon_200px.jpg" alt="lewagon" class="logo">
+        <h1>Quotes du batch 47</h1>
+      </div>
+
       <div class="row">
-        <div class="col-sm-6 col-sm-offset-3">
+        <div class="col-sm-8 col-sm-offset-2">
           <%= yield %>
         </div>
       </div>

@@ -1,27 +1,18 @@
-<h1>Quotes du batch 47</h1>
-
 <div class="panel panel-default">
   <div class="panel-body">
-    <form class="form-horizontal" action="/quotes" method="POST">
+    <form action="/quotes" method="POST">
       <div class="form-group">
-        <label for="value" class="col-sm-2 control-label">Citation</label>
-        <div class="col-sm-10">
-          <textarea rows="2" cols="20" name="value" id="value"></textarea>
-        </div>
+        <label for="value">Citation</label>
+        <br>
+        <textarea class="citation-input" rows="2" name="value" id="value"></textarea>
       </div>
 
       <div class="form-group">
-        <label for="url" class="col-sm-2 control-label">Author</label>
-        <div class="col-sm-10">
-          <input type="text" name="author" id="author">
-        </div>
+        <label for="url" class="hidden control-label">Author</label>
+        <input type="text" name="author" id="author" placeholder="Author">
       </div>
 
-      <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
-          <input type="submit" class="btn btn-primary" value="Create new post">
-        </div>
-      </div>
+      <input type="submit" class="btn btn-primary" value="Create new post">
     </form>
   </div>
 </div>
@@ -30,8 +21,8 @@
 <% @quotes.each do |quote| %>
 
   <div class="row">
-    <div class="col-xs-1 col-md-1">
-      <form action="/quotes/<%= quote.id %>" method="post">
+    <div class="col-xs-1 col-md-1 upvote-container">
+      <form class="upvote" action="/quotes/<%= quote.id %>" method="post">
             <input id="hidden" type="hidden" name="_method" value="patch">
             <button type="submit" class="btn btn-success btn-xs">
               <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
