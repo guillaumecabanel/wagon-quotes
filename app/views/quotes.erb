@@ -1,0 +1,51 @@
+<h1>Quotes du batch 47</h1>
+
+<div class="panel panel-default">
+  <div class="panel-body">
+    <form class="form-horizontal" action="/quotes" method="POST">
+      <div class="form-group">
+        <label for="value" class="col-sm-2 control-label">Citation</label>
+        <div class="col-sm-10">
+          <textarea rows="2" cols="20" name="value" id="value"></textarea>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="url" class="col-sm-2 control-label">Author</label>
+        <div class="col-sm-10">
+          <input type="text" name="author" id="author">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <input type="submit" class="btn btn-primary" value="Create new post">
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+<% @quotes.each do |quote| %>
+
+  <div class="row">
+    <div class="col-xs-1 col-md-1">
+      <form action="/quotes/<%= quote.id %>" method="post">
+            <input id="hidden" type="hidden" name="_method" value="patch">
+            <button type="submit" class="btn btn-success btn-xs">
+              <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+            </button>
+      </form>
+    </div>
+
+    <div class="col-xs-11 col-md-11">
+      <blockquote>
+        <p><%= quote.value %></p>
+        <footer><%= quote.author %> <span class="badge"><%= quote.votes %> votes</span>
+        </footer>
+      </blockquote>
+    </div>
+
+  </div>
+<% end %>
